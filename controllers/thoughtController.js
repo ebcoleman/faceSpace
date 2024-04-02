@@ -1,0 +1,1 @@
+//  Controller logic for thought-related operations.

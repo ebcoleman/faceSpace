@@ -1,3 +1,4 @@
+// Defines the Mongoose schema for the Thought model.
 const mongoose = require('mongoose');
 const reactionSchema = require('./Reaction');
 

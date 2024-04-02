@@ -1,0 +1,1 @@
+// Defines routes and handlers for thought-related endpoints.

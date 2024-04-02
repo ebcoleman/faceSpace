@@ -1,3 +1,4 @@
+// Defines the Mongoose schema for the Reaction subdocument.
 const mongoose = require('mongoose');
 
 const reactionSchema = new mongoose.Schema({
