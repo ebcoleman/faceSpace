@@ -1,7 +1,7 @@
 // File for establishing the connection to the MongoDB database using Mongoose.
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/faceSpace', {
+mongoose.connect('mongodb://127.0.0.1:27017/faceSpace_db', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
