@@ -30,15 +30,30 @@ const getUserById = async (req, res) => {
 };
 
 // Create a new user
+// const createUser = async (req, res) => {
+//   try {
+//     const user = await User.create(req.body);
+//     res.status(201).json(user);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: 'Server error' });
+//   }
+// };
+
+// Create a new user
 const createUser = async (req, res) => {
+  console.log('Creating a new user');
   try {
+    console.log('Request body:', req.body);
     const user = await User.create(req.body);
+    console.log('User created:', user);
     res.status(201).json(user);
   } catch (error) {
-    console.error(error);
+    console.error('Error creating user:', error);
     res.status(500).json({ error: 'Server error' });
   }
 };
+
 
 // Update user by ID
 const updateUser = async (req, res) => {

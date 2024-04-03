@@ -12,7 +12,7 @@ module.exports = {
 };
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/faceSpace', {
+mongoose.connect('mongodb://localhost:27017/faceSpace_db', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

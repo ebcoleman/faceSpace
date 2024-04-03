@@ -1,30 +1,62 @@
-// Main entry point of your Express.js application. This file sets up the Express app, includes route handlers, and starts the server.
+// --------------------------------------------------------------
+// const express = require('express');
+// const mongoose = require('mongoose');
+// const routes = require('./routes');
+
+
+
+// const app = express();
+// const PORT = process.env.PORT || 3000;
+// const connectionString = 'mongodb://127.0.0.1:27017/faceSpace_db';
+// mongoose.set('strictQuery', false);
+
+// // Middleware
+// app.use(express.json());
+
+// // Routes
+// app.use('/api', routes);
+
+// // MongoDB connection
+// mongoose.connect(connectionString, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// })
+// .then(() => {
+//   console.log('Connected to MongoDB');
+//   // Start the server
+//   app.listen(PORT, () => {
+//     console.log(`Server is running on http://localhost:${PORT}`);
+//   });
+// })
+// .catch((error) => {
+//   console.error('Error connecting to MongoDB:', error);
+// });
+// -------------------------------------------------------
+
+
+
 
 const express = require('express');
-const mongoose = require('mongoose');
+const db = require('./config/connection');
 const routes = require('./routes');
 
-const app = express();
+const cwd = process.cwd();
+
 const PORT = process.env.PORT || 3000;
+const app = express();
 
-// Middleware
+// Note: not necessary for the Express server to function. This just helps indicate what activity's server is running in the terminal.
+const activity = cwd.includes('faceSpace')
+  ? cwd.split('faceSpace')[1]
+  : cwd;
+
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(routes);
 
-// Routes
-app.use('/api', routes);
-
-// MongoDB connection
-const connectionString = 'mongodb://127.0.0.1:27017/faceSpace_db';
-mongoose.set('strictQuery', false);
-
-mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log('Connected to MongoDB');
-    // Start the server
-    app.listen(PORT, () => {
-      console.log(`Server is running on http://localhost:${PORT}`);
-    });
-  })
-  .catch((error) => {
-    console.error('Error connecting to MongoDB:', error);
+db.once('open', () => {
+  app.listen(PORT, () => {
+    console.log(`API server for ${activity} running on port ${PORT}!`);
   });
+});
+
