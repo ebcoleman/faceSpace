@@ -2,8 +2,6 @@
 
 const Thought = require('../models/Thought');
 
-// Controller functions for thought-related operations
-
 // Get all thoughts
 const getAllThoughts = async (req, res) => {
   try {

@@ -2,8 +2,6 @@
 
 const User = require('../models/User');
 
-// Controller functions for user-related operations
-
 // Get all users
 const getAllUsers = async (req, res) => {
   try {
@@ -28,17 +26,6 @@ const getUserById = async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 };
-
-// Create a new user
-// const createUser = async (req, res) => {
-//   try {
-//     const user = await User.create(req.body);
-//     res.status(201).json(user);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: 'Server error' });
-//   }
-// };
 
 // Create a new user
 const createUser = async (req, res) => {

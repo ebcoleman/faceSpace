@@ -1,4 +1,5 @@
 // Defines routes and handlers for thought-related endpoints.
+
 const router = require('express').Router();
 const {
     getAllThoughts,
@@ -9,10 +10,6 @@ const {
     createReaction,
     deleteReaction,
   } = require('../../controllers/thoughtController');
-  
-  // Define routes for thought-related endpoints(added on line 2)
-  // const express = require('express');
-  // const router = express.Router();
   
   router.route('/')
     .get(getAllThoughts)
