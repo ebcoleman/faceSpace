@@ -1,4 +1,4 @@
-// Defines routes and handlers for user-related endpoints.
+// Routes and handlers for user-related endpoints.
 
 const express = require('express');
 const router = express.Router();
@@ -8,9 +8,11 @@ const {
   createUser,
   updateUser,
   deleteUser,
+  addFriend,
+  removeFriend,
 } = require('../../controllers/userController');
 
-// Define routes for user-related endpoints
+// Routes for user-related endpoints
 router.route('/')
   .get(getAllUsers)
   .post(createUser);
@@ -19,5 +21,10 @@ router.route('/:userId')
   .get(getUserById)
   .put(updateUser)
   .delete(deleteUser);
+
+// Routes for adding and removing friends
+router.route('/:userId/friends/:friendId')
+  .post(addFriend)
+  .delete(removeFriend);
 
 module.exports = router;
