@@ -4,14 +4,14 @@ const User = require('./User');
 const Thought = require('./Thought');
 const reactionSchema = require('./Reaction');
 
-// Export models
+// Exports models
 module.exports = {
   User,
   Thought,
   reactionSchema
 };
 
-// Connect to MongoDB
+// Connects to MongoDB
 mongoose.connect('mongodb://localhost:27017/faceSpace_db', {
   useNewUrlParser: true,
   useUnifiedTopology: true,

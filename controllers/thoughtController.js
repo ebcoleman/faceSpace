@@ -73,7 +73,7 @@ const createReaction = async (req, res) => {
     if (!thought) {
       return res.status(404).json({ error: 'Thought not found' });
     }
-    thought.reactions.push(req.body); // Assuming req.body contains the reaction data
+    thought.reactions.push(req.body);
     await thought.save();
     res.status(201).json(thought);
   } catch (error) {

@@ -77,7 +77,6 @@ const addFriend = async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
-    // Add friend to the user's friend list
     user.friends.push(req.params.friendId);
     await user.save();
     res.json(user);
@@ -94,7 +93,6 @@ const removeFriend = async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
-    // Remove friend from the user's friend list
     user.friends = user.friends.filter(friendId => friendId != req.params.friendId);
     await user.save();
     res.json(user);

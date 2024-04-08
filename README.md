@@ -8,6 +8,8 @@ This is a social network API where users can post thoughts and react to other's 
 
 Walkthrough video:
 
+https://drive.google.com/file/d/1in-la5wquxNip-fzeHECTpnf7HBJKafj/view
+
 
 GitHub repository:
 
